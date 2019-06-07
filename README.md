@@ -80,7 +80,6 @@ following table:
 |FONTS|[cvpr2019_adversarial_robustness_fonts.tar.gz](https://datasets.d2.mpi-inf.mpg.de/cvpr2019-adversarial-robustness/cvpr2019_adversarial_robustness_fonts.tar.gz)|
 |EMNIST|[cvpr2019_adversarial_robustness_emnist.tar.gz](https://datasets.d2.mpi-inf.mpg.de/cvpr2019-adversarial-robustness/cvpr2019_adversarial_robustness_emnist.tar.gz)|
 |Fashion-MNIST|[cvpr2019_adversarial_robustness_fashion.tar.gz](https://datasets.d2.mpi-inf.mpg.de/cvpr2019-adversarial-robustness/cvpr2019_adversarial_robustness_fashion.tar.gz)|
-|CelebA|[cvpr2019_adversarial_robustness_celeba.tar.gz](https://datasets.d2.mpi-inf.mpg.de/cvpr2019-adversarial-robustness/cvpr2019_adversarial_robustness_celeba.tar.gz)|
 
 Each datasets provides HDF5 files for training/test images and labels;
 FONTS additionally provides test/training latent codes.
@@ -98,6 +97,15 @@ as floats in `[0,1]`:
 * `test_codes.h5`: `160000x3` (for FONTS, the class label is stored in the third column)
 * `test_theta.h5`: `160000x6` (only for FONTS, latent codes)
 * `test_images.h5`: `160000x28x28x1`
+
+[CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) needs to be converted
+manually as the license does not allow redistribution. For this, `data/celeba`
+includes two simple scripts, `convert_images.py` and `convert_labels.py`; for these
+scripts, the dataset should be downloaded into `BASE_DATA` such that
+the following directories/files exist:
+
+    BASE_DATA/CelebA/img_align_celeba
+    Base_DATA/CelebA/Anno/list_attr_celeba.txt
 
 **VAE-GAN Models.** To approximate the manifolds of these datasets, we
 use VAE-GANs; The models for all datasets can be downloaded here:
@@ -179,7 +187,6 @@ Note that the source code and/or data is based on other projects for which separ
 
 * [MNIST](http://yann.lecun.com/exdb/mnist/) and [EMNIST](https://www.nist.gov/node/1298471/emnist-dataset);
 * [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist);
-* [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html);
 * [Google Fonts](https://github.com/google/fonts);
 
 ### Source Code
