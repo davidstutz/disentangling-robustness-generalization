@@ -2,14 +2,8 @@ import os
 import sys
 sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + '/../../')
 from training.train_vae_gan2 import *
-from training.train_vae_gan3 import *
-from training.train_vae_gan4 import *
-from training.train_vae_gan5 import *
-from training.train_vae_gan6 import *
 from training.test_variational_auto_encoder import *
 from training.train_variational_auto_encoder import *
-from tools.visualize_mosaic import *
-from tools.visualize_individual import *
 from common import paths
 
 
@@ -193,14 +187,6 @@ class LearnManifolds:
                 log(arguments)
                 if method =='vaegan2':
                     train = TrainVAEGAN2(arguments)
-                elif method == 'vaegan3':
-                    train = TrainVAEGAN3(arguments)
-                elif method == 'vaegan4':
-                    train = TrainVAEGAN4(arguments)
-                elif method == 'vaegan5':
-                    train = TrainVAEGAN5(arguments)
-                elif method == 'vaegan6':
-                    train = TrainVAEGAN6(arguments)
                 else:
                     raise NotImplementedError()
                 train.main()
